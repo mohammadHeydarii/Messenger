@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+    <script>
+      // Generate the required CSS
+      import AntDesign from "react-native-vector-icons/Fonts/AntDesign.ttf";
+      import Entypo from "react-native-vector-icons/Fonts/Entypo.ttf";
+      import EvilIcons from "react-native-vector-icons/Fonts/EvilIcons.ttf";
+      import Feather from "react-native-vector-icons/Fonts/Feather.ttf";
+      import FontAwesome from "react-native-vector-icons/Fonts/FontAwesome.ttf";
+      import FontAwesome5_Brands from "react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf";
+      import FontAwesome5_Regular from "react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf";
+      import FontAwesome5_Solid from "react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf";
+      import FontAwesome6_Brands from "react-native-vector-icons/Fonts/FontAwesome6_Brands.ttf";
+      import FontAwesome6_Regular from "react-native-vector-icons/Fonts/FontAwesome6_Regular.ttf";
+      import FontAwesome6_Solid from "react-native-vector-icons/Fonts/FontAwesome6_Solid.ttf";
+      import Fontisto from "react-native-vector-icons/Fonts/Fontisto.ttf";
+      import Foundation from "react-native-vector-icons/Fonts/Foundation.ttf";
+      import Ionicons from "react-native-vector-icons/Fonts/Ionicons.ttf";
+      import MaterialCommunityIcons from "react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf";
+      import MaterialIcons from "react-native-vector-icons/Fonts/MaterialIcons.ttf";
+      import Octicons from "react-native-vector-icons/Fonts/Octicons.ttf";
+      import SimpleLineIcons from "react-native-vector-icons/Fonts/SimpleLineIcons.ttf";
+      import Zocial from "react-native-vector-icons/Fonts/Zocial.ttf";
+      const AntDesign = `@font-face {
+  src: url(${AntDesign});
+  font-family: AntDesign;
+}`;
+      const Entypo = `@font-face {
+  src: url(${Entypo});
+  font-family: Entypo;
+}`;
+const EvilIcons = `@font-face {
+  src: url(${EvilIcons});
+  font-family: EvilIcons;
+}`;
+const Feather = `@font-face {
+  src: url(${Feather});
+  font-family: Feather;
+}`;
+      const FontAwesome = `@font-face {
+  src: url(${FontAwesome});
+  font-family: FontAwesome;
+}`;
+const FontAwesome5_Brands = `@font-face {
+  src: url(${FontAwesome5_Brands});
+  font-family: FontAwesome5_Brands;
+}`;
+const FontAwesome5_Regular = `@font-face {
+  src: url(${FontAwesome5_Regular});
+  font-family: FontAwesome5_Regular;
+}`;
+      const FontAwesome5_Solid = `@font-face {
+  src: url(${FontAwesome5_Solid});
+  font-family: FontAwesome5_Solid;
+}`;
+const FontAwesome6_Brands = `@font-face {
+  src: url(${FontAwesome6_Brands});
+  font-family: FontAwesome6_Brands;
+}`;
+
+
+const FontAwesome6_Regular = `@font-face {
+  src: url(${FontAwesome6_Regular});
+  font-family: FontAwesome6_Regular;
+}`;
+      const FontAwesome6_Solid = `@font-face {
+  src: url(${FontAwesome6_Solid});
+  font-family: FontAwesome6_Solid;
+}`;
+const Fontisto = `@font-face {
+  src: url(${Fontisto});
+  font-family: Fontisto;
+}`;
+const Foundation = `@font-face {
+  src: url(${Foundation});
+  font-family: Foundation;
+}`;
+      const Ionicons = `@font-face {
+  src: url(${Ionicons});
+  font-family: Ionicons;
+}`;
+const MaterialCommunityIcons = `@font-face {
+  src: url(${MaterialCommunityIcons});
+  font-family: MaterialCommunityIcons;
+}`;
+const MaterialIcons = `@font-face {
+  src: url(${MaterialIcons});
+  font-family: MaterialIcons;
+}`;
+      const Octicons = `@font-face {
+  src: url(${Octicons});
+  font-family: Octicons;
+}`;
+const SimpleLineIcons = `@font-face {
+  src: url(${SimpleLineIcons});
+  font-family: SimpleLineIcons;
+}`;
+const Zocial = `@font-face {
+  src: url(${SimpleLineIcons});
+  font-family: SimpleLineIcons;
+}`;
+
+      // Create a stylesheet
+      const style = document.createElement("style");
+      style.type = "text/css";
+
+      // Append the iconFontStyles to the stylesheet
+      if (style.styleSheet) {
+        style.styleSheet.cssText = AntDesign;
+        style.styleSheet.cssText = Entypo;
+        style.styleSheet.cssText = EvilIcons;
+        style.styleSheet.cssText = Feather;
+        style.styleSheet.cssText = FontAwesome;
+        style.styleSheet.cssText = FontAwesome5_Brands;
+        style.styleSheet.cssText = FontAwesome5_Regular;
+        style.styleSheet.cssText = FontAwesome5_Solid;
+        style.styleSheet.cssText = FontAwesome6_Brands;
+        style.styleSheet.cssText = FontAwesome6_Regular;
+        style.styleSheet.cssText = FontAwesome6_Solid;
+        style.styleSheet.cssText = Fontisto;
+        style.styleSheet.cssText = Foundation;
+        style.styleSheet.cssText = Ionicons;
+        style.styleSheet.cssText = MaterialCommunityIcons;
+        style.styleSheet.cssText = MaterialIcons;
+        style.styleSheet.cssText = Octicons;
+        style.styleSheet.cssText = SimpleLineIcons;
+        style.styleSheet.cssText = Zocial;
+      } else {
+        style.appendChild(document.createTextNode(AntDesign));
+        style.appendChild(document.createTextNode(Entypo));
+        style.appendChild(document.createTextNode(EvilIcons));
+        style.appendChild(document.createTextNode(Feather));
+        style.appendChild(document.createTextNode(FontAwesome));
+        style.appendChild(document.createTextNode(FontAwesome5_Brands));
+        style.appendChild(document.createTextNode(FontAwesome5_Regular));
+        style.appendChild(document.createTextNode(FontAwesome5_Solid));
+        style.appendChild(document.createTextNode(FontAwesome6_Brands));
+        style.appendChild(document.createTextNode(FontAwesome6_Regular));
+        style.appendChild(document.createTextNode(FontAwesome6_Solid));
+        style.appendChild(document.createTextNode(Fontisto));
+        style.appendChild(document.createTextNode(Foundation));
+        style.appendChild(document.createTextNode(Ionicons));
+        style.appendChild(document.createTextNode(MaterialCommunityIcons));
+        style.appendChild(document.createTextNode(MaterialIcons));
+        style.appendChild(document.createTextNode(Octicons));
+        style.appendChild(document.createTextNode(SimpleLineIcons));
+        style.appendChild(document.createTextNode(Zocial));
+      }
+
+      // Inject the stylesheet into the document head
+      document.head.appendChild(style);
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>

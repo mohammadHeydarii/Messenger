@@ -1,0 +1,234 @@
+import React, { FC, useReducer, useState } from 'react';
+import {
+  Platform,
+  createUseStyles,
+  useGetChatConversationMessages,
+  usePostChatEditMessage,
+} from 'core/src';
+import {
+  Message,
+  Button,
+  Spacing,
+  Container,
+  ChatHeader,
+  MyBottomSheet,
+} from 'components/src';
+
+import { useTranslation } from 'react-i18next';
+import {
+  initialState,
+  reducer,
+  UpdateSetReplay,
+  UpdateReplayMessage,
+  UpdateSetEdit,
+  UpdateHasSearch,
+} from './store';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Entypo from 'react-native-vector-icons/Entypo';
+import Foundation from 'react-native-vector-icons/Foundation';
+import { ChatInput } from './components/chatInput';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import { StackNavigationProp } from '@react-navigation/stack';
+// import { SocketIOContext } from '../../app/appcontainer';
+import { EmojiKeyboard } from 'rn-emoji-keyboard';
+
+interface Message {
+  id: number;
+  text: string;
+}
+
+interface ChatProps {
+  navigation: StackNavigationProp<any>;
+  conversationId: string;
+  name: string;
+  setOpen?: any;
+}
+
+const ChatScreen: FC<ChatProps> = ({
+  navigation,
+  conversationId,
+  name,
+  setOpen,
+}) => {
+  const { styles, colors } = useStyles();
+  const { i18n } = useTranslation();
+  const [messageId, setMessageId] = useState<string>('');
+  const [showEmojiKeyboard, setShowEmojiKeyboard] = useState<boolean>(false);
+  const [inputMessage, setInputMessage] = useState('');
+  const [forwardModalVisible, setForwardModalVisible] =
+    useState<boolean>(false);
+
+  const [{ replay, replayMessage, hasSearch, edit }, dispatch] = useReducer(
+    reducer,
+    initialState,
+  );
+
+  const { data, refetch } = useGetChatConversationMessages({
+    pageNumber: '1',
+    pageSize: '20',
+    conversationId: conversationId,
+  });
+  const toggleEmojiKeyboard = () => {
+    setShowEmojiKeyboard(!showEmojiKeyboard);
+  };
+
+  // const { mutate: sendMutate } = usePostChatSendMessage({
+  //   onSuccess: () => {
+  //     setInputMessage('');
+  //     dispatch(UpdateSetReplay(false));
+  //     refetch();
+  //   },
+  // });
+
+  const { mutate: editMutate } = usePostChatEditMessage({
+    onSuccess: () => {
+      setInputMessage('');
+      dispatch(UpdateSetEdit(false));
+      refetch();
+    },
+  });
+
+  const confirmEdit = () => {
+    if (inputMessage.trim() === '') {
+      return;
+    }
+    editMutate({
+      requestBody: {
+        messageId: messageId,
+        content: inputMessage,
+      },
+    });
+  };
+
+  const sendMessage = () => {
+    if (inputMessage.trim() === '') {
+      return;
+    }
+    // SocketIOContext.invoke(
+    //   'sendMessage', // Your Event Key
+    //   {
+    //     conversationId: conversationId,
+    //     message: inputMessage,
+    //     ...(messageId && { originalMessageId: messageId }),
+    //   },
+    // );
+
+    dispatch(UpdateSetReplay(false));
+    refetch();
+
+    // sendMutate({
+    //   requestBody: {
+    //     conversationId: conversationId,
+    //     message: inputMessage,
+    //     originalMessageId: messageId,
+    //   },
+    // });
+  };
+
+  const handleForwardModalClose = () => {
+    setForwardModalVisible(false);
+  };
+
+  return (
+    <Container>
+      <MyBottomSheet
+        ModalClose={handleForwardModalClose}
+        modalVisible={forwardModalVisible}
+      />
+      <ChatHeader
+        setOpen={setOpen}
+        name={name}
+        dispatch={dispatch}
+        search={hasSearch}
+        setSearch={UpdateHasSearch}
+        conversationId={conversationId}
+        navigation={navigation}
+        longPress={true}
+      />
+      <Message
+        setForwardModalVisible={setForwardModalVisible}
+        setMessageId={setMessageId}
+        dispatch={dispatch}
+        setInputMessage={setInputMessage}
+        setReplay={UpdateSetReplay}
+        messages={data?.data}
+        setReplayMessage={UpdateReplayMessage}
+        setEdit={UpdateSetEdit}
+      />
+      {!hasSearch && (
+        <ChatInput
+          edit={edit}
+          replay={replay}
+          dispatch={dispatch}
+          setReplay={UpdateSetReplay}
+          replayMessage={replayMessage}
+          change={(text: string) => setInputMessage(text)}
+          value={inputMessage}
+          focus={replay ? true : false}
+          placeholder={Platform.isAndroid ? i18n.t('message') : ''}
+          classes={styles.input}
+          setEdit={UpdateSetEdit}
+          rightIcon={
+            <>
+              {inputMessage?.trim() === '' ? (
+                <>
+                  <Button>
+                    <Entypo
+                      name="attachment"
+                      size={20}
+                      color={colors.color01}
+                    />
+                  </Button>
+                  <Spacing horizontal={8} />
+                  <Button>
+                    <Foundation
+                      name="microphone"
+                      size={30}
+                      color={colors.color01}
+                    />
+                  </Button>
+                </>
+              ) : edit ? (
+                <Button onClick={confirmEdit}>
+                  <AntDesign name="checkcircle" size={20} color={colors.blue} />
+                </Button>
+              ) : (
+                <Button onClick={sendMessage}>
+                  <MaterialIcons name="send" size={25} color={colors.color01} />
+                </Button>
+              )}
+            </>
+          }
+          leftIcon={
+            <Button onClick={toggleEmojiKeyboard}>
+              <MaterialIcons
+                name="emoji-emotions"
+                size={25}
+                color={colors.color01}
+              />
+            </Button>
+          }
+        />
+      )}
+      {showEmojiKeyboard && (
+        <EmojiKeyboard
+          onEmojiSelected={(emoji: any) => {
+            const emojiToAdd = emoji.emoji;
+            setInputMessage(
+              (prevInputMessage) => prevInputMessage + emojiToAdd,
+            );
+          }}
+        />
+      )}
+    </Container>
+  );
+};
+
+const useStyles = createUseStyles(({}) => ({
+  input: {
+    width: '100%',
+    borderWidth: 0,
+    paddingHorizontal: 15,
+  },
+}));
+export { ChatScreen };

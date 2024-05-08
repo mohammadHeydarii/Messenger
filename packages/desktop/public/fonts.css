@@ -1,0 +1,28 @@
+@font-face {
+    src: url(../../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf);
+    font-family: "Ionicons";
+}
+
+@font-face {
+    src: url(../../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf);
+    font-family: "FontAwesome";
+}
+
+@font-face {
+    src: url(../../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf);
+    font-family: "MaterialIcons";
+}
+
+@font-face {
+    src: url(../../../node_modules/react-native-vector-icons/Fonts/Feather.ttf);
+    font-family: "Feather";
+}
+
+@font-face {
+    src: url(../../../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf);
+    font-family: "MaterialCommunityIcons";
+}
+@font-face {
+    src: url(../../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf);
+    font-family: "AntDesign";
+}

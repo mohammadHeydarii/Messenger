@@ -1,0 +1,58 @@
+const { app, BrowserWindow } = require("electron");
+const path = require("node:path");
+const win = null;
+function createWindow() {
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    show: false,
+    
+    preload: path.resolve(require.resolve('react-native-electron/preload')),
+    webPreferences: {
+      preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
+    },
+  });
+  win.once("ready-to-show", () => {
+    win.show();
+  });
+  // const startURL = isDev
+  //   ? "http://localhost:3000"
+  //   : `file://${path.join(__dirname, "../build/index.html")}`;
+  win.loadURL(MAIN_WINDOW_WEBPACK_ENTRY)
+
+}
+;
+const gotTheLock = app.requestSingleInstanceLock();
+
+if (!gotTheLock) {
+  app.quit();
+} else {
+  const { sendOpenURL } = require("react-native-electron");
+
+  app.on("second-instance", (event, argv) => {
+    if (win != null) {
+      if (win.isMinimized()) {
+        win.restore();
+      }
+      if (typeof argv[1] === "string") {
+        sendOpenURL(argv[1]);
+      }
+      win.focus();
+    }
+  });
+  app.on("window-all-closed", () => {
+    if (process.platform !== "darwin") {
+      app.quit();
+    }
+  });
+
+  app.whenReady().then(() => {
+    createWindow();
+
+    app.on("activate", () => {
+      if (BrowserWindow.getAllWindows().length === 0) {
+        createWindow();
+      }
+    });
+  });
+}

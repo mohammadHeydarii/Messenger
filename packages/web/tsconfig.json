@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "typeRoots": [
+      "@types",
+      "../../node_modules/@types"
+    ],
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "module": "esnext"
+  },
+  "include": [
+    "src"
+  ],
+  "references": [
+    {
+      "path": "../components"
+    }
+  ]
+}

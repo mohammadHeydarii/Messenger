@@ -1,0 +1,82 @@
+{
+  "name": "desktop",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/index.js",
+  "dependencies": {
+    "assets": "*",
+    "components": "*",
+    "@babel/polyfill": "^7.8.3",
+    "@stately/core": "^0.0.1",
+    "electron-store": "^5.1.0",
+    "electron-updater": "^4.2.0",
+    "jsonfile": "^5.0.0",
+    "mkdirp": "^1.0.3"
+  },
+  "scripts": {
+    "build": "yarn build:base && yarn build:web && yarn build:web:post && yarn build:electron",
+    "build:base": "yarn clean && yarn compile",
+    "build:electron": "electron-builder",
+    "build:skipweb": "yarn build:base && yarn build:web:post && yarn build:electron",
+    "build:web": "pushd \"../web\" && yarn build && popd",
+    "build:web:post": "shx cp -Rf ../web/build dist/web",
+    "clean": "shx rm -rf ../web/build && shx rm -rf ./dist",
+    "compile": "yarn babel src --out-dir dist --presets=@babel/env",
+    "format": "prettier --write '{.,src/**}/*.{js,jsx,ts,tsx}'",
+    "lint": "tslint -p .",
+    "start": "concurrently \"yarn start:web\" \"yarn compile -w\" \"wait-on http://localhost:3000 && yarn start:desktop\"",
+    "start:desktop": "nodemon --watch dist --watch assets --exec \"electron .\"",
+    "start:web": "pushd \"../web\" && yarn start --desktop && popd",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "build": {
+    "appId": "com.messenger",
+    "productName": "messenger",
+    "extends": null,
+    "directories": {
+      "buildResources": "assets",
+      "output": "build"
+    },
+    "extraMetadata": {
+      "name": "messenger"
+    },
+    "linux": {
+      "icon": "icons/icon.png"
+    },
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "icons/icon.png"
+    },
+    "win": {
+      "icon": "icons/icon.ico"
+    },
+    "files": [
+      "assets",
+      "dist"
+    ],
+    "protocols": [
+      {
+        "name": "messenger",
+        "schemes": [
+          "messenger"
+        ]
+      }
+    ],
+    "publish": {
+      "provider": "github",
+      "releaseType": "draft"
+    }
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.23.9",
+    "@babel/core": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "electron": "^28.2.1",
+    "electron-builder": "24.9.1",
+    "electron-devtools-installer": "^3.2.0",
+    "nodemon": "^3.0.3",
+    "shx": "^0.3.4",
+    "wait-on": "^7.2.0",
+    "cross-env": "^7.0.3"
+  }
+}

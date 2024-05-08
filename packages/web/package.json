@@ -1,0 +1,68 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.59",
+    "@types/react": "^18.2.31",
+    "@types/react-dom": "^18.2.14",
+    "assets": "*",
+    "components": "*",
+    "react-native-web": "^0.19.9",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "compile": "tsc -b",
+    "prestart": "npm run compile",
+    "start": "concurrently \"npm run compile -- -w --incremental\" \"npm run _start\"",
+    "_start": "react-app-rewired start",
+    "prebuild": "npm run compile",
+    "build": "react-app-rewired build",
+    "pretest": "npm run compile",
+    "build-production": "GENERATE_SOURCEMAP=false react-app-rewired build",
+    "build-stage": "react-app-rewired build --stage",
+    "build-rc": "react-app-rewired build --rc",
+    "test-build-production": "yarn build-production && mv build build-production && serve -s build-production",
+    "test-build-stage": "yarn build-stage && mv build build-stage && serve -s build-stage",
+    "test-build-rc": "yarn build-rc && mv build build-rc && serve -s build-rc",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
+    "ci-stage": "react-app-rewired build --stage"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "babel-loader": "^9.1.3",
+    "babel-plugin-react-native-web": "^0.19.9",
+    "concurrently": "^8.2.2",
+    "html-webpack-plugin": "^5.5.3",
+    "react-app-rewired": "^2.2.1",
+    "url-loader": "^4.1.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "webpack-merge": "^5.10.0",
+    "webpack": "^5.89.0"
+  }
+}

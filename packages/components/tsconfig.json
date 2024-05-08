@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "checkJs": false,
+    "emitDeclarationOnly": true,
+    "isolatedModules": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+  },
+  "include": [
+    "src"
+  ],
+  "references": [
+    {
+      "path": "../core"
+    },
+  ]
+}

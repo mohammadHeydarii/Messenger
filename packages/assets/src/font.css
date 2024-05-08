@@ -1,0 +1,198 @@
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: 900;
+	src: url('../src/fonts/IRANSansMobile\(FaNum\)_Black.ttf') format('truetype');
+}
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: bold;
+	src: url('../src/fonts/IRANSansMobile\(FaNum\)_Bold.ttf') format('truetype');
+}
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: 500;
+	src: url('../src/fonts/IRANSansMobile\(FaNum\)_Medium.ttf') format('truetype');
+}
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: 300;
+	src: url('../src/fonts/IRANSansMobile\(FaNum\)_Light.ttf') format('truetype');
+}
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: 200;
+	src: url('../src/fonts/IRANSansMobile\(FaNum\)_UltraLight.ttf') format('truetype');
+}
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: normal;
+	src: url('../src/fonts/IRANSansMobile\(FaNum\).ttf') format('truetype');
+}
+
+/*IRANYekan*/
+
+@font-face {
+	font-family: IRANYekan;
+	font-style: normal;
+	font-weight: 900;
+	src: url('../src/fonts/IRANYekanMobileBlack.ttf') format('truetype');
+}
+@font-face {
+	font-family: IRANYekan;
+	font-style: normal;
+	font-weight: bold;
+	src: url('../src/fonts/IRANYekanMobileBold.ttf') format('truetype');
+}
+@font-face {
+	font-family: IRANYekan;
+	font-style: normal;
+	font-weight: 500;
+	src: url('../src/fonts/IRANYekanMobileMedium.ttf') format('truetype');
+}
+@font-face {
+	font-family: IRANYekan;
+	font-style: normal;
+	font-weight: 300;
+	src: url('../src/fonts/IRANYekanMobileLight.ttf') format('truetype');
+}
+@font-face {
+	font-family: IRANYekan;
+	font-style: normal;
+	font-weight: 200;
+	src: url('../src/fonts/IRANYekanMobileThin.ttf') format('truetype');
+}
+@font-face {
+	font-family: IRANYekan;
+	font-style: normal;
+	font-weight: normal;
+	src: url('../src/fonts/IRANYekanMobileRegular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: 900;
+	src: url('../src/fonts/IRANSansMobile\(FaNum\)_Black.ttf') format('truetype');
+}
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: bold;
+	src: url('../src/fonts/IRANSansMobile\(FaNum\)_Bold.ttf') format('truetype');
+}
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: 500;
+	src: url('../src/fonts/IRANSansMobile\(FaNum\)_Medium.ttf') format('truetype');
+}
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: 300;
+	src: url('../src/fonts/IRANSansMobile\(FaNum\)_Light.ttf') format('truetype');
+}
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: 200;
+	src: url('../src/fonts/IRANSansMobile\(FaNum\)_UltraLight.ttf') format('truetype');
+}
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: normal;
+	src: url('../src/fonts/IRANSansMobile\(FaNum\).ttf') format('truetype');
+}
+
+/*IRANYekan*/
+/* Icon  */
+@font-face {
+	font-family: AntDesign;
+	src: url('../src/fonts/AntDesign.ttf') format('truetype');
+}
+@font-face {
+	font-family: Entypo;
+	src: url('../src/fonts/Entypo.ttf') format('truetype');
+}
+@font-face {
+	font-family: EvilIcons;
+	src: url('../src/fonts/EvilIcons.ttf') format('truetype');
+}
+@font-face {
+	font-family: Feather;
+	src: url('../src/fonts/Feather.ttf') format('truetype');
+}
+@font-face {
+	font-family: FontAwesome;
+	src: url('../src/fonts/FontAwesome.ttf') format('truetype');
+}
+@font-face {
+	font-family: FontAwesome5_Brands;
+	src: url('../src/fonts/FontAwesome5_Brands.ttf') format('truetype');
+}
+
+
+@font-face {
+	font-family: FontAwesome5_Regular;
+	src: url('../src/fonts/FontAwesome5_Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: FontAwesome5_Solid;
+	src: url('../src/fonts/FontAwesome5_Solid.ttf') format('truetype');
+}
+@font-face {
+	font-family: FontAwesome6_Brands;
+	src: url('../src/fonts/FontAwesome6_Brands.ttf') format('truetype');
+}
+@font-face {
+	font-family: FontAwesome6_Regular;
+	src: url('../src/fonts/FontAwesome6_Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: FontAwesome6_Solid;
+	src: url('../src/fonts/FontAwesome6_Solid.ttf') format('truetype');
+}
+@font-face {
+	font-family: Fontisto;
+	src: url('../src/fonts/Fontisto.ttf') format('truetype');
+}
+
+
+@font-face {
+	font-family: Foundation;
+	src: url('../src/fonts/Foundation.ttf') format('truetype');
+}
+@font-face {
+	font-family: Ionicons;
+	src: url('../src/fonts/Ionicons.ttf') format('truetype');
+}
+@font-face {
+	font-family: MaterialCommunityIcons;
+	src: url('../src/fonts/MaterialCommunityIcons.ttf') format('truetype');
+}
+@font-face {
+	font-family: MaterialIcons;
+	src: url('../src/fonts/MaterialIcons.ttf') format('truetype');
+}
+@font-face {
+	font-family: Octicons;
+	src: url('../src/fonts/Octicons.ttf') format('truetype');
+}
+@font-face {
+	font-family: SimpleLineIcons;
+	src: url('../src/fonts/SimpleLineIcons.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: Zocial;
+	src: url('../src/fonts/Zocial.ttf') format('truetype');
+}
+
+/* Icon */

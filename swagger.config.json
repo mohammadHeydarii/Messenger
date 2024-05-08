@@ -1,0 +1,7 @@
+{
+  "url": "https://msg.damopet24.com/core/api-json",
+  "dir": "./packages/core/src/services",
+  "reactHooks": true,
+  "prefix": "/api",
+  "generateEnumAsType": false
+}

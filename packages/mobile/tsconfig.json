@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "typeRoots": ["@types", "../../node_modules/@types"],
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "module": "esnext"
+  },
+  "include": ["index.js", "src"],
+  "exclude": ["babel.config", "generateEnv.js", "metro.config.js"],
+  "references": [
+    {
+      "path": "../components"
+    }
+  ]
+}
