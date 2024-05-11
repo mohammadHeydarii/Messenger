@@ -2,12 +2,18 @@
   "name": "desktop",
   "version": "0.1.0",
   "private": true,
+  "description": "Desktop Messenger 5040",
+  "author": "Mohammad-Heydari-koohbaneh",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mohammadHeydarii/Messenger.git"
+  },
   "main": "dist/index.js",
   "dependencies": {
-    "assets": "*",
-    "components": "*",
     "@babel/polyfill": "^7.8.3",
     "@stately/core": "^0.0.1",
+    "assets": "*",
+    "components": "*",
     "electron-store": "^5.1.0",
     "electron-updater": "^4.2.0",
     "jsonfile": "^5.0.0",
@@ -30,6 +36,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "build": {
+    "publish": {
+      "provider": "github",
+      "releaseType": "draft"
+    },
     "appId": "com.messenger",
     "productName": "messenger",
     "extends": null,
@@ -61,22 +71,18 @@
           "messenger"
         ]
       }
-    ],
-    "publish": {
-      "provider": "github",
-      "releaseType": "draft"
-    }
+    ]
   },
   "devDependencies": {
     "@babel/cli": "^7.23.9",
     "@babel/core": "^7.23.9",
     "@babel/preset-env": "^7.23.9",
-    "electron": "^28.2.1",
-    "electron-builder": "24.9.1",
-    "electron-devtools-installer": "^3.2.0",
+    "cross-env": "^7.0.3",
+    "electron": "30.0.2",
+    "electron-builder": "24.13.3",
     "nodemon": "^3.0.3",
     "shx": "^0.3.4",
     "wait-on": "^7.2.0",
-    "cross-env": "^7.0.3"
+    "electron-devtools-installer": "^3.2.0"
   }
 }
